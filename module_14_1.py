@@ -20,7 +20,7 @@ cursor.execute(" CREATE INDEX IF NOT EXISTS idx_email ON Users(email)")
 #     cursor.execute(" INSERT INTO Users(username, email, age, balance) VALUES (?,?,?,?)",
 #                    (f"User{i}",f"example{i}@gmail.com",i*10,"1000"))
 
-cursor.execute(" UPDATE Users SET balance = 500 WHERE id %2 == 0")
+cursor.execute(" UPDATE Users SET balance = 500 WHERE id %2 != 0")
 for i in range(1, 11, 3):
     cursor.execute(" DELETE FROM Users WHERE id = ?", (i,))
 
